@@ -56,7 +56,8 @@ async def filter(client, message):
         mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}**"
         files = await get_filter_results(query=search)
         if files:
-            file_id = file.file_id
+            for file in files:
+                file_id = file.file_id
                 filename = file.file_name
                 file_size = get_size(file.file_size)
                 file_link = f"https://telegram.dog/{nyva}?start=proffsor_99_-_-_-_{file_id}"
